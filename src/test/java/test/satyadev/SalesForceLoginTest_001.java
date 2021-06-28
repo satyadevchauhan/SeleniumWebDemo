@@ -1,31 +1,27 @@
 package test.satyadev;
 
 import com.satyadev.BaseTest;
-import com.satyadev.page.FacebookHomePage;
-import com.satyadev.page.FacebookLoginPage;
+import com.satyadev.page.SalesForceHomePage;
+import com.satyadev.page.SalesForceLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class FacebookLoginTest_001 extends BaseTest {
+public class SalesForceLoginTest_001 extends BaseTest {
 
-    FacebookLoginPage loginPage;
-    FacebookHomePage homePage;
+    SalesForceLoginPage loginPage = new SalesForceLoginPage();
+    SalesForceHomePage homePage;
 
-    public FacebookLoginTest_001() {
+    public SalesForceLoginTest_001() {
         String url = properties.getProperty("url");
         System.out.println("url: " + url);
         driver.get(url);
     }
 
-    @BeforeMethod
-    public void setup() {
-        loginPage = new FacebookLoginPage();
-    }
-
     @Test
     public void testEnterUsername() {
         loginPage.getUsername().sendKeys("TestUsername");
-        loginPage.getPassword().sendKeys("TestUsername");
+        loginPage.getPassword().sendKeys("TestPassword");
+        loginPage.getLoginBtn().click();
     }
 
 //    @Test(priority = 1)
@@ -45,6 +41,6 @@ public class FacebookLoginTest_001 extends BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        driver.close();
+        //driver.quit();
     }
 }

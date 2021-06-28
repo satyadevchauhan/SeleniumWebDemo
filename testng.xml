@@ -10,7 +10,7 @@
 
     <test name="Test1">
         <classes>
-            <class name="test.satyadev.FacebookLoginTest_001"/>
+            <class name="test.satyadev.SalesForceLoginTest_001"/>
         </classes>
     </test>
 
